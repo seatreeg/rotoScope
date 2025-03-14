@@ -1,0 +1,35 @@
+---
+title: "update"
+format: pdf
+editor: visual
+---
+
+## 
+
+The vector describing the camera location is denoted by
+
+$Camera(x, y, z)=\begin{bmatrix} 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}$
+
+$Object(x, y, z)=\begin{bmatrix} x \\ y \\ z \\ 1 \end{bmatrix}$
+
+Translation is described using a matrix multiplication operation, where translation in each direction is denoted by $t_{x},t_{y}$,and $t_{z}$
+
+$T(t_{x}, t_{y},t_{z})=\begin{bmatrix} 1 & 0 & 0 & t_{x}\\ 0 & 1 & 0 & t_{y} \\ 0 & 0 & 1 & t_{z} \\ 0 & 0 & 0 & 1 \end{bmatrix}$
+
+$Translated\ Camera=T(t_{x}, t_{y},t_{z})\ \star\ Camera$
+
+$R_{x}(\alpha)=\begin{bmatrix} 1 & 0 & 0 & 0\\ 0 & cos(\alpha) & -sin(\alpha) & 0 \\ 0 & sin(\alpha) & cos(\alpha) & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$
+
+$R_{y}(\beta)= \begin{bmatrix} cos(\beta) & 0 & sin(\beta) & 0 \\ 0 & 1 & 0 & 0 \\ -sin(\beta) & 0 & cos(\beta) & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$
+
+$R_{z}(\theta)=\begin{bmatrix} cos(\theta) & -sin(\theta) & 0 & 0 \\ sin(\theta) & cos(\theta) & 0 & 0\\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{bmatrix}$
+
+Full rotation
+
+$R(\alpha,\beta,\theta)=R_{z}(\theta) R_{y}(\beta) R_{x}(\alpha)$
+
+$Rotated\ Camera=R(\alpha,\beta,\theta)\ \star\ Camera$
+
+The pose is achieved when the following operation results in the location of the object.
+
+$Pose = [\ T(t_{x}, t_{y},t_{z})\ \star\ R(\alpha,\beta,\theta)\ ]\  \star\ Camera$
